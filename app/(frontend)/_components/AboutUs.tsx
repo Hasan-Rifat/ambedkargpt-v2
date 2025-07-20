@@ -36,7 +36,7 @@ const AboutUs = () => {
             description="Bringing Ambedkar’s Vision to the Digital Age"
           />
         </div>
-        <div className="grid grid-cols-3 gap-9">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-y-24 md:gap-x-10 gap-y-36 gap-9">
           {data.map((item) => (
             <div
               style={{

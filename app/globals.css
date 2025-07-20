@@ -10,6 +10,11 @@
   --screen-lg: 1024px;
   --screen-xl: 1280px;
   --screen-2xl: 1536px;
+
+  /* container */
+  --container-max-width: 1120px; /* Example max width for container */
+  --container-padding: 16px; /* Example padding for container */
+  --container-margin: auto; /* Center the container */
 }
 
 body {
@@ -22,9 +27,9 @@ body {
 }
 
 h1 {
-  @apply text-[44px] font-bold;
+  @apply text-[22px] lg:text-[44px] font-bold;
 }
 
 h2 {
-  @apply text-2xl font-semibold;
+  @apply text-sm lg:text-2xl font-semibold;
 }

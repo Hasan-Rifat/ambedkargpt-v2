@@ -1,9 +1,20 @@
+import Input from "@/src/components/Input";
 import React from "react";
 import { GrAttachment } from "react-icons/gr";
 import { MdOutlineMic } from "react-icons/md";
 import { RiTelegram2Fill } from "react-icons/ri";
 
-const HeroForm = () => {
+const HeroForm = ({
+  value = "",
+  handleSend = () => {},
+  onChange = () => {},
+  onKeyDown = () => {},
+}: {
+  value?: string;
+  handleSend?: () => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+}) => {
   const icons: {
     icon: React.JSX.Element;
     key: string;
@@ -34,21 +45,36 @@ const HeroForm = () => {
           </div>
         ))}
       </div>
-      <div className="w-full h-full p-2 border border-gray-300 rounded flex justify-between items-center">
+      <div className="w-full h-full p-2 border  border-[rgba(0,0,0,0.5)]  rounded flex justify-between items-center">
         {/* <div className="">{formData.placeholder}</div> */}
         <div className="w-full h-full relative">
-          <textarea
+          {/* <textarea
             name="chat"
+            value={value}
+            onChange={onChange}
+            onKeyDown={onKeyDown}
             placeholder={formData.placeholder}
             rows={1}
             className="w-full h-full "
-          ></textarea>
+          ></textarea> */}
+          <Input
+            type="text"
+            name="chat"
+            value={value}
+            onChange={onChange}
+            onKeyDown={onKeyDown}
+            placeholder={formData.placeholder}
+            className="w-full h-full text-xs border-none focus:outline-none"
+          />
         </div>
 
         <div className="flex ">
-          <div className="bg-accent text-white rounded-full p-2.5  ">
+          <button
+            onClick={handleSend}
+            className="bg-accent text-white rounded-full p-2.5   "
+          >
             {formData.icon}
-          </div>
+          </button>
         </div>
       </div>
     </div>

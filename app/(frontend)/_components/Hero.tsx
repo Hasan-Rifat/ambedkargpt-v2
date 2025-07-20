@@ -6,6 +6,7 @@ import PrimaryButton from "@/src/components/shared/PrimaryButton";
 import { IoArrowForwardCircleOutline } from "react-icons/io5";
 import SecondaryButton from "@/src/components/shared/SecondaryButton";
 import { MdOutlineArrowOutward } from "react-icons/md";
+import Link from "next/link";
 
 const Hero = () => {
   const data = {
@@ -17,8 +18,17 @@ const Hero = () => {
   return (
     <section>
       <div className="container">
-        <div className="grid md:grid-cols-2 gap-10 py-10">
+        <div className="grid lg:grid-cols-2 gap-10 py-10">
+          {/* Add order-last lg:order-first to reverse on large screens */}
           <div>
+            <Image
+              src={heroImg}
+              alt="Hero Image"
+              className="w-full h-auto max-w-md mx-auto"
+              priority
+            />
+          </div>
+          <div className="order-last lg:order-first">
             <h2 className="">
               {data.title.split(",")[0]}
               <br />
@@ -28,27 +38,23 @@ const Hero = () => {
             <h3 className="text-[#039] text-5xl font-bold my-5">
               {data.subtitle}
             </h3>
-
             <div>
               <HeroForm />
-              <div className="flex flex-col md:flex-row items-center  gap-4 mt-5">
+              <div className="flex flex-col md:flex-row items-center gap-4 mt-5">
                 <PrimaryButton className="py-[10px] px-4 my-3 text-base">
-                  Chat with Dr. Ambedkar Now{" "}
-                  <IoArrowForwardCircleOutline size={40} />
+                  <Link
+                    className="flex items-center justify-between gap-2"
+                    href="/chatbot"
+                  >
+                    Chat with Dr. Ambedkar Now
+                    <IoArrowForwardCircleOutline size={40} />
+                  </Link>
                 </PrimaryButton>
                 <SecondaryButton className="!py-2 px-5 font-medium text-base">
                   Bheem ChatBOT <MdOutlineArrowOutward size={30} />
                 </SecondaryButton>
               </div>
             </div>
-          </div>
-          <div>
-            <Image
-              src={heroImg}
-              alt="Hero Image"
-              className="w-full h-auto max-w-md mx-auto"
-              priority
-            />
           </div>
         </div>
       </div>
